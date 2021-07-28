@@ -4,14 +4,16 @@ import './App.css';
 import Login from './Login'
 import Profile from './Profile';
 import Students from './Students';
+import ConditionalComponent from './ConditionalComponent';
 
 function App() {
   return (
     <div className="App">
       {/* <Login></Login>
-      <hr/>
-      <Profile></Profile> */}
-      <Students></Students>
+      <hr/>*/}
+      {/* <Profile></Profile>  */}
+      {/* <Students></Students> */}
+      <ConditionalComponent></ConditionalComponent>
     </div>
   );
 }
