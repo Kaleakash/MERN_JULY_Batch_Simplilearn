@@ -4,6 +4,7 @@ class Students extends React.Component {
         super(props);
         this.state = {names:[]}
     }
+    
     handleChange=(event)=> {
         let name = event.target.name;
         let value = event.target.value;
@@ -19,10 +20,20 @@ class Students extends React.Component {
             names:[...this.state.names,this.state.stdName]  // [copyOfArray,appendNewValue]
         })
     }
-    render() {
-        let name = this.state.names.map(obj=><p>{obj}</p>)
+    deleteRec=(i)=> {
+        //ES5 style 
+        let names = this.state.names;
+        names.splice(i,1);
+        this.setState({names});
+    }
 
-        return(
+    render() {
+        let name = this.state.names.map((obj,i)=>
+                                <div>{obj} 
+                            <input type="button" value="Delete" 
+                            onClick={()=>this.deleteRec(i)}/>
+                                </div>)
+    return(
             <div>
                 <h2>Add Names</h2>
                 <form>
