@@ -11,9 +11,9 @@ function App() {
     <div className="App">
       {/* <Login></Login>
       <hr/>*/}
-      {/* <Profile></Profile>  */}
+      <Profile></Profile> 
       {/* <Students></Students> */}
-      <ConditionalComponent></ConditionalComponent>
+      {/* <ConditionalComponent></ConditionalComponent> */}
     </div>
   );
 }

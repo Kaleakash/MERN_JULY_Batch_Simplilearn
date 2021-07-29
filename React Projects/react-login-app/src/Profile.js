@@ -16,13 +16,17 @@ class Profile extends React.Component{
         //console.log(this.state)
         alert(JSON.stringify(this.state.profile))
     }
+    tech= [];
     handleCheckBox=(event)=> {
         let name = event.target.name;
         let value = event.target.value;
+        
+        this.tech.push(value);
+        console.log(this.tech)
         //console.log(name+" "+check+" "+value);
         //this.setState({[name]:value})
         this.setState({profile:{
-            ...this.state.profile,[name]:value
+            ...this.state.profile.tech,[name]:value
         }})
 
     }
