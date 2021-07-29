@@ -8,6 +8,13 @@ export default class EmployeeComponent extends Component {
     storeEmployeeRec=(event)=> {
 
     }
+    componentDidMount(){
+        console.log("component did mount")
+        this.retrieveEmployeeRec();
+    }
+    // componentDidUpdate() {
+    //     console.log("component did update")
+    // }
     retrieveEmployeeRec=(event)=> {
         axios.get("http://localhost:3001/employees").then(result=> {
             if(result.status==200){
@@ -15,6 +22,7 @@ export default class EmployeeComponent extends Component {
             }
         }).catch(error=>console.log(error));
     }
+
     handleChange=(event)=> {
         this.setState({[event.target.name]:event.target.value});
     }
@@ -28,9 +36,18 @@ export default class EmployeeComponent extends Component {
         then(result=>{
             if(result.statusText=="Created"){
                 this.setState({"msg":"Record inserted successfully"})
+                this.retrieveEmployeeRec();
             }
         }).catch(error=>this.setState({"msg":"Record didn't store"}));
 
+    }
+    deleteRec=(id)=> {
+        axios.delete("http://localhost:3001/employees/"+id).
+        then(result=>{
+            if(result.status==200){
+                this.retrieveEmployeeRec();
+            }
+        }).catch(error=>console.log(error));
     }
     render() {
     let EmpRec = this.state.employees.map(e=>
@@ -38,6 +55,8 @@ export default class EmployeeComponent extends Component {
             <td>{e.id}</td>
             <td>{e.name}</td>
             <td>{e.age}</td>
+            <td><input type="button" value="Delete Rec" 
+            onClick={()=>this.deleteRec(e.id)}/></td>
         </tr>
     )
         return (
@@ -52,7 +71,6 @@ export default class EmployeeComponent extends Component {
             <input type="text" name="age" onChange={this.handleChange}/><br/>
             <input type="submit" value="Store Record"/>
             <input type="reset" value="reset"/>
-            <input type="button" value="Load Data" onClick={this.retrieveEmployeeRec}/>
             </form>       
             <br/>
             {this.state.msg} 
