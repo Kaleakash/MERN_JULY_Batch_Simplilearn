@@ -56,31 +56,32 @@ export default class EmployeeComponent extends Component {
             <td>{e.name}</td>
             <td>{e.age}</td>
             <td><input type="button" value="Delete Rec" 
-            onClick={()=>this.deleteRec(e.id)}/></td>
+            onClick={()=>this.deleteRec(e.id)} className="btn btn-danger"/></td>
         </tr>
     )
         return (
-            <div>
+            <div className="container">
             <h2>Store Employee Records</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="form-group">
             <label>Id</label>
-            <input type="text" name="id" onChange={this.handleChange}/><br/>
+    <input type="text" name="id" onChange={this.handleChange} className="form-control"/><br/>
             <label>Name</label>
-            <input type="text" name="name" onChange={this.handleChange}/><br/>
+    <input type="text" name="name" onChange={this.handleChange} className="form-control"/><br/>
             <label>Age</label>
-            <input type="text" name="age" onChange={this.handleChange}/><br/>
-            <input type="submit" value="Store Record"/>
-            <input type="reset" value="reset"/>
+            <input type="text" name="age" onChange={this.handleChange} className="form-control"/><br/>
+            <input type="submit" value="Store Record" className="btn btn-success"/>
+            <input type="reset" value="reset" className="btn btn-info"/>
             </form>       
             <br/>
             {this.state.msg} 
             <hr/>
-            <table border="1">
+            <table border="1" className="table table-striped">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
                             <th>Age</th>
+                            <th>Delete Record</th>
                         </tr>
                     </thead>
                     <tbody>
