@@ -1,5 +1,5 @@
 let fs = require("fs");
-let emp = {id:100,name:"Ravi",age:21};
+let emp = {id:103,name:"Ajay",age:26};
 
 fs.writeFile("emp.json",JSON.stringify(emp),(err)=> {
     if(!err){
