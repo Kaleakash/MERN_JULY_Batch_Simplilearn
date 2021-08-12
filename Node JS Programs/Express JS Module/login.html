@@ -7,8 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Login Page</h2>
+    <h2>Login Page - Get Method</h2>
     <form action="checkUser" method="GET">
+        <label>UserName</label>
+        <input type="text" name="user"/><br/>
+        <label>Password</label>
+        <input type="password" name="pass"/><br/>
+        <input type="submit" value="submit"/>
+        <input type="reset" value="reset"/>
+    </form>
+    
+    <h2>Login Page - Post Method</h2>
+    <form action="checkUser" method="POST">
         <label>UserName</label>
         <input type="text" name="user"/><br/>
         <label>Password</label>
