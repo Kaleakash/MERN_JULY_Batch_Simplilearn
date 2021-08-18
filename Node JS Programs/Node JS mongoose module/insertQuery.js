@@ -21,7 +21,7 @@ var customerModel = obj.model("",customerSchema,"Customer");
     // now create cutomer reference using model 
     //let cust1 = new customerModel({_id:1,name:"Raj",age:21});
     let cust2 = new customerModel({_id:4,name:"Ajay",age:32});
-    let cust3 = new customerModel({_id:5,name:"Vijay",age:28});
+    let cust3 = new customerModel({_id:2,name:"Vijay",age:28});
     customerModel.insertMany([cust2,cust3],(err,result)=> {
         if(!err){
             console.log(result);

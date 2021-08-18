@@ -19,15 +19,17 @@ db.once("open",()=> {
 //var customerModel = obj.model("Customer",customerSchema); it create collection in lower case with s post fix. 
 var customerModel = obj.model("",customerSchema,"Customer");
 
-    customerModel.updateOne({_id:2},{$set:{age:29}},(err,result)=> {
+    customerModel.deleteMany({age:{$gt:28}},(err,result)=> {
         if(!err){
-            if(result.nModified>0){
-                    console.log("Updated")
-            }else {
-                    console.log("didn't update")
-            }
+           if(result.deletedCount>0){
+                console.log("Record deleted ")
+           }else {
+                console.log("Record didn't delete")
+           }
         }
+
         obj.disconnect();
     })
+    
 
 })

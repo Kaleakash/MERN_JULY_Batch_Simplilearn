@@ -19,13 +19,11 @@ db.once("open",()=> {
 //var customerModel = obj.model("Customer",customerSchema); it create collection in lower case with s post fix. 
 var customerModel = obj.model("",customerSchema,"Customer");
 
-    customerModel.updateOne({_id:2},{$set:{age:29}},(err,result)=> {
+    customerModel.find({},(err,doc)=> {
         if(!err){
-            if(result.nModified>0){
-                    console.log("Updated")
-            }else {
-                    console.log("didn't update")
-            }
+            doc.forEach(ele=> {
+                console.log(ele);
+            })
         }
         obj.disconnect();
     })
