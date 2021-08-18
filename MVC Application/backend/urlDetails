@@ -1,0 +1,37 @@
+product Collection 
+
+main path : http://localhost:9090/api/product
+
+method post : store product details 
+
+http://localhost:9090/api/product/storeProductDetails
+
+data :
+{
+ "_id":2,
+  "pname":"Computer",
+  "price":850000
+}
+
+method get : retrieve all product details 
+
+http://localhost:9090/api/product/getProductDetails
+
+method delete : delete by Id 
+
+http://localhost:9090/api/product/deleteProductDetails/3
+
+
+method update : 
+
+http://localhost:9090/api/product/updateProductDetails
+
+data : 
+
+{
+    "_id":1,
+    "price":125000
+}
+
+
+

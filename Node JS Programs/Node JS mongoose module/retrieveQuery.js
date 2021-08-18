@@ -22,7 +22,8 @@ var customerModel = obj.model("",customerSchema,"Customer");
     customerModel.find({},(err,doc)=> {
         if(!err){
             doc.forEach(ele=> {
-                console.log(ele);
+                //console.log(ele);
+                console.log("Name is "+ele.name+" Age is "+ele.age);
             })
         }
         obj.disconnect();
