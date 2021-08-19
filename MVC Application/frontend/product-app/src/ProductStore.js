@@ -5,6 +5,7 @@ export default class ProductStore extends Component {
     constructor(props){
         super(props);
         this.state = {_id:0,pname:"",price:0.0,msg:""}
+        this.child = React.createRef();     // creating the reference of child component.
     }
     handleChange=(event)=> {
         this.setState({[event.target.name]:event.target.value});
@@ -17,7 +18,8 @@ export default class ProductStore extends Component {
         axios.post("http://localhost:9090/api/product/storeProductDetails",product).
         then(result=>{
             if(result.data.result == undefined){
-                    this.setState({"msg":"Record inserted successfully"})
+                    this.setState({"msg":"Record inserted successfully"});
+                    this.child.current.retrieveProdutDetails();
             }else {
                 this.setState({"msg":"record didn't store"})
             }
@@ -39,7 +41,7 @@ export default class ProductStore extends Component {
             <br/>
             <span style={{'color':'red'}}>{this.state.msg}</span>
             <hr/>
-            <RetreiveProductDetails></RetreiveProductDetails>
+            <RetreiveProductDetails ref={this.child}></RetreiveProductDetails>
             </div>
         )
     }

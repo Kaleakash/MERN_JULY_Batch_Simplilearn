@@ -15,12 +15,23 @@ export default class RetreiveProductDetails extends Component {
             this.setState({product:result.data});           // data loaded in product state variable. 
         }).catch(error=>console.log(error));
     }
+    deleteRec =(pid)=> {
+        //console.log("Delete function called.."+pid);
+        axios.delete("http://localhost:9090/api/product/deleteProductDetails/"+pid).
+        then(result=>{
+                console.log(result);
+                this.retrieveProdutDetails();
+        }).catch(error=>console.log(error));
+    }
     render() {
         let productRec = this.state.product.map(p=> 
             <tr key={p._id}>
                     <td>{p._id}</td>
                     <td>{p.pname}</td>
                     <td>{p.price}</td>
+                    <td>
+        <input type="button" value="Delete Rec" onClick={()=>this.deleteRec(p._id)}/>
+                    </td>
             </tr>
         )
         return (
@@ -32,6 +43,7 @@ export default class RetreiveProductDetails extends Component {
                                 <th>Product Id</th>
                                 <th>Product Name</th>
                                 <th>Product Price</th>
+                                <th>Delete Product</th>
                             </tr>    
                         </thead>    
                         <tbody>
