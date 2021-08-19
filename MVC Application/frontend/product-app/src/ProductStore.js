@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 export default class ProductStore extends Component {
     constructor(props){
         super(props);
@@ -11,7 +11,10 @@ export default class ProductStore extends Component {
     handleSubmit=(event)=> {
         event.preventDefault();
         let product = this.state;
-        console.log(product);
+        //console.log(product);
+        //1st parameter is url and 2nd parameter json data. 
+        axios.post("http://localhost:9090/api/product/storeProductDetails",product).
+        then(result=>console.log(result)).catch(error=>console.log(error));
     }
     render() {
         return (

@@ -3,6 +3,7 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
 let productRouter = require("./router/product.router");
+let cors = require("cors");
 
 // database URL 
 let url = "mongodb://localhost:27017/mern";
@@ -12,6 +13,7 @@ let app = express();
 
 // add middleware 
 app.use(bodyParser.json());     // enable data from request body
+app.use(cors());                // enable cors features. 
 
 // to avoid database connection warning 
 let options = {
