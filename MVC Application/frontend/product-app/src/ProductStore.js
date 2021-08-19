@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import RetreiveProductDetails from './RetreiveProductDetails'
 export default class ProductStore extends Component {
     constructor(props){
         super(props);
@@ -37,6 +38,8 @@ export default class ProductStore extends Component {
             </form>     
             <br/>
             <span style={{'color':'red'}}>{this.state.msg}</span>
+            <hr/>
+            <RetreiveProductDetails></RetreiveProductDetails>
             </div>
         )
     }
