@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+        // client is ready to connect to server 
+        let ws = new WebSocket("ws://localhost:9090");
+        var send;
+        // open the connection and send the message.
+        ws.onopen = ()=> {
+            ws.send("Client Say : Hello WS Server...")
+            send = function(){
+                let data = document.getElementById("msg").value;
+                ws.send(data);
+                document.getElementById("msg").value="";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>WebSocket Client Application is ready</h2>
+    <textarea id="msg">
+
+    </textarea><br/>
+    <input type="button" value="Send Message" onclick="send()"/>
+</body>
+</html>
