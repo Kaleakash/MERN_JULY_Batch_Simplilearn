@@ -28,15 +28,15 @@ export default class ProductStore extends Component {
     render() {
         return (
             <div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="form-group">
                 <label>Product Id</label>
-                <input type="text" name="_id" onChange={this.handleChange}/><br/>
+                <input type="text" name="_id" onChange={this.handleChange} className="form-control"/><br/>
                 <label>Product Name</label>
-                <input type="text" name="pname" onChange={this.handleChange}/><br/>
+                <input type="text" name="pname" onChange={this.handleChange} className="form-control"/><br/>
                 <label>Product Price</label>
-                <input type="text" name="price" onChange={this.handleChange}/><br/>
-                <input type="submit" value="Store"/>
-                <input type="reset" value="reset"/>    
+                <input type="text" name="price" onChange={this.handleChange} className="form-control"/><br/>
+                <input type="submit" value="Store" className="btn btn-success"/>
+                <input type="reset" value="reset" className="btn btn-secondary"/>    
             </form>     
             <br/>
             <span style={{'color':'red'}}>{this.state.msg}</span>

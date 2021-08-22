@@ -30,14 +30,14 @@ export default class RetreiveProductDetails extends Component {
                     <td>{p.pname}</td>
                     <td>{p.price}</td>
                     <td>
-        <input type="button" value="Delete Rec" onClick={()=>this.deleteRec(p._id)}/>
+        <input type="button" value="Delete Rec" className="btn btn-info" onClick={()=>this.deleteRec(p._id)}/>
                     </td>
             </tr>
         )
         return (
             <div>
                 <h2>Product Details</h2>
-                <table border="1">
+                <table border="1" className="table">
                         <thead>
                             <tr>
                                 <th>Product Id</th>
