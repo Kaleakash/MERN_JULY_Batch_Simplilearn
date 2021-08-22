@@ -8,15 +8,19 @@
     <script type="text/JavaScript">
         // client is ready to connect to server 
         let ws = new WebSocket("ws://localhost:9090");
-        var send;
+        var send;   // function name is globally access.
         // open the connection and send the message.
         ws.onopen = ()=> {
             ws.send("Client Say : Hello WS Server...")
-            send = function(){
+                send = ()=>{
                 let data = document.getElementById("msg").value;
                 ws.send(data);
                 document.getElementById("msg").value="";
             }
+        }
+        //This function is use to receive the message from server.
+        ws.onmessage = (msg)=>{
+            document.getElementById("info").innerHTML=msg.data;
         }
     </script>
 </head>
@@ -26,5 +30,9 @@
 
     </textarea><br/>
     <input type="button" value="Send Message" onclick="send()"/>
+    <br/>
+    <div id="info">
+
+    </div>
 </body>
 </html>

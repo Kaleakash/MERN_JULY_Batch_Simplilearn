@@ -15,6 +15,7 @@ app.ws("/",(socket,req)=> {
         // To recieve the message from client 
         socket.on("message",(data)=> {
             console.log(data);
+            socket.send("Client I Got message "+new Date()); // server send message to client 
         })
 })
 
