@@ -19,8 +19,15 @@ describe("Rest API Testing",()=> {
             expect(100).toBe(employees[0].id)
             expect("Raj").toBe(employees[0].name)
             expect(21).toBe(employees[0].age)
-            
+
         }).end(err=>err?finish(err):finish());
     })
 
+    it("Post Method Testing ",(finish)=> {
+        let emp = {id:105,name:"Ajay",age:26}
+        supertest(app).post("/storeData").send(emp).
+        expect(200).
+        expect(data=>expect("Record stored successfully").toBe(data.text)).
+        end(err=>err?finish(err):finish());
+    })
 })
