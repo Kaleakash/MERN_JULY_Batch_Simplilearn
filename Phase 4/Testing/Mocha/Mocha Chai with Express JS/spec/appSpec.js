@@ -14,7 +14,7 @@ describe("Express JS Testing",()=> {
     });
 
     it("Post method testing ",async()=> {
-        let student = {sid:100,sname:"Ravi",age:24}
+        let student = {sid:101,sname:"Ravi",age:18}
        
         /*let result = await chai.request(app).post("/storeStudentInfo").send(student);
         expect(result.status).to.be.equal(200);
@@ -22,7 +22,8 @@ describe("Express JS Testing",()=> {
 
         let result = await chai.request(app).post("/storeStudentInfo").send(student);
         expect(result.status).to.be.equal(200);
-        expect(result.text).to.be.equal("Student Id must be unique");
 
+        //expect(result.text).to.be.equal("Student Id must be unique");
+        expect(result.text).to.be.equal("Age must grether than 21");
     })
 })
